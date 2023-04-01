@@ -53,4 +53,11 @@ public class HomeController {
 	
 		
 	
+	//ModelAttribute
+	//just similar to @RequestBody , but @RequestBody JSON data bind kore automatically in java class
+	// @ModelAttribute , JSP theke orm submit korle seta filed name diye bind kore java class e
+	
+	//  @ModelAttribute for spring MVC
+	//   @RequestBody  is for angular or react front end framework where we send only JSOn data in controller.
+	
 }
