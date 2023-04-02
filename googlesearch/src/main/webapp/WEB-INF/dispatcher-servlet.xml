@@ -16,19 +16,29 @@
          http://www.springframework.org/schema/aop
          http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
          http://www.springframework.org/schema/mvc
-		 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		 http://www.springframework.org/schema/mvc/spring-mvc.xsd"> 
 
 
-	   <context:annotation-config></context:annotation-config>
+	   <context:annotation-config/>
 	   <context:component-scan base-package="com.search.*" />
-
-
+       <mvc:annotation-driven/>
+       
+       <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"></mvc:resources>
 
 	<bean name="viewresolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/pages/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	
+	<bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
+
+	<mvc:interceptors>
+	   <mvc:interceptor>
+	     <mvc:mapping path="/*"/>
+	     <bean class="com.search.controller.RequestInterceptor"></bean>
+	   </mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
