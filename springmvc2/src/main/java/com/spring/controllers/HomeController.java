@@ -32,6 +32,8 @@ public class HomeController {
 		names.add("Avik");
 		model.addAttribute("NAMES",names);
 		
+		//git chk
+		
 		return "home";
 	}
 	
